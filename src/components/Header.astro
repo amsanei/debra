@@ -1,0 +1,27 @@
+---
+const LINKS = [
+    { id: 0, title: "صفحه اصلی", href: "/" },
+    { id: 1, title: "فروشگاه", href: "/shop" },
+    { id: 2, title: "درباره ما", href: "/about" },
+    { id: 3, title: "حساب کاربری", href: "/auth" },
+];
+---
+
+<header>
+    <div class="flex justify-between py-4 px-8 border-b items-center">
+        <div>دبرا</div>
+        <div class="flex gap-2">
+            {
+                LINKS.map((item) => (
+                    <a href={item.href} class="block">
+                        {item.title}
+                    </a>
+                ))
+            }
+        </div>
+        <div class="flex gap-2">
+            <div>👤</div>
+            <div>👤</div>
+        </div>
+    </div>
+</header>
