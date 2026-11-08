@@ -2,6 +2,8 @@
 import { Font } from "astro:assets";
 import Header from "../components/Header.astro";
 import "../styles/global.css";
+
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,7 +19,17 @@ import "../styles/global.css";
 	</head>
 	<body>
 		<Header />
-		<slot />
+		<main>
+			<div class="bg-neutral-50 py-4 px-8">
+				<div class="font-bold text-2xl">
+					{title}
+				</div>
+				<div>
+					<span>صفحه اصلی / فروشگاه</span>
+				</div>
+			</div>
+			<slot />
+		</main>
 	</body>
 </html>
 

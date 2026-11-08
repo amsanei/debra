@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PRODUCTS from "../data/products";
+import Product from "../components/Product.astro";
+---
+
+<Layout title="فروشگاه">
+    <div class="p-8">
+        <div class="flex justify-between mb-4">
+            <div>لیست محصولات</div>
+            <div class="flex gap-2">
+                <div>فیلتر ها</div>
+                <div>مرتب سازی</div>
+            </div>
+        </div>
+        <div class="grid grid-cols-12 gap-2 items-start">
+            <div
+                class="col-span-9 grid grid-cols-3 gap-4 p-4 bg-neutral-50 rounded-xl"
+            >
+                {PRODUCTS.map((item, index) => <Product info={item} />)}
+            </div>
+            <div class="col-span-3 bg-neutral-50 p-4 rounded-xl">Filters</div>
+        </div>
+    </div>
+</Layout>
