@@ -1,11 +1,45 @@
 ---
+import Product from "../components/Product.astro";
+import PRODUCTS from "../data/products";
 import Layout from "../layouts/Layout.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<div class="font-bold">سلام دنیا!</div>
-	<div class="">سلام دنیا!</div>
+	<div class="flex flex-col gap-20">
+		<div class="grid grid-cols-12 h-[60vh]">
+			<div class="flex flex-col justify-between gap-2 col-span-6 py-8">
+				<div class="flex flex-col gap-4">
+					<div class="text-5xl font-bold leading-normal">
+						راحتی‌ای که به چشم می‌آید.
+					</div>
+					<div>روزهای ساده، حس خوب</div>
+					<div>
+						لباس زیر و جوراب‌های روزمره، با طراحی ساده و پارچه‌هایی
+						که پوست شما را دوست دارند.
+					</div>
+				</div>
+				<div>
+					<a href="/shop"> مشاهده محصولات </a>
+				</div>
+			</div>
+			<div class="col-span-6">
+				<div class="bg-green-800/20 rounded-xl w-full h-full"></div>
+			</div>
+		</div>
+		<section>
+			<div class="flex justify-between mb-4">
+				<div class="font-bold text-xl">محصولات منتخب</div>
+				<div>
+					<a href="/shop"> مشاهده همه </a>
+				</div>
+			</div>
+			<div class="grid grid-cols-4 gap-4">
+				{
+					PRODUCTS.filter((i, index) => index >= 4).map(
+						(item, index) => <Product info={item} />,
+					)
+				}
+			</div>
+		</section>
+	</div>
 </Layout>
