@@ -1,0 +1,20 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PRODUCTS from "../../data/products";
+
+export function getStaticPaths() {
+    return PRODUCTS.map((p) => ({ params: { product: p.slug } }));
+}
+
+const { product: slug } = Astro.params;
+const product = PRODUCTS.find((p) => p.slug === slug);
+
+if (!product) {
+    return Astro.redirect("/404");
+}
+---
+
+<Layout>
+    <h1>{product.title}</h1>
+    <p>{product.price}</p>
+</Layout>
