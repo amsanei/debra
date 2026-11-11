@@ -1,0 +1,37 @@
+---
+import { LayoutDashboard } from "@lucide/astro";
+
+const LINKS = [
+    { title: "داشبورد", href: "/dashboard" },
+    { title: "سفارشات", href: "/orders" },
+    { title: "آدرس ها", href: "/addresses" },
+    { title: "اطلاعات حساب کاربری", href: "/account-details" },
+];
+---
+
+<div class="bg-white grid grid-cols-12 gap-4 border border-neutral-200 rounded-lg min-h-[80vh]">
+    <div class="border-e border-neutral-200 col-span-3 p-4 flex flex-col justify-between">
+        <div class="flex flex-col gap-4">
+            {LINKS.map((item) => (
+                <div>
+                    <a href={"/me" + item.href}>{item.title}</a>
+                </div>
+            ))}
+        </div>
+        <div class="flex items-center justify-between gap-4 bg-green-700/10 p-4 rounded-lg">
+            <div class="flex items-center gap-2">
+                <div class="size-16 bg-white rounded-full text-4xl flex items-center justify-center">
+                    🧙‍♂️
+                </div>
+                <div class="space-y-1">
+                    <div class="text-sm">خوش آمدی</div>
+                    <div class="font-bold">امیر محمد</div>
+                </div>
+            </div>
+            <div>خروج</div>
+        </div>
+    </div>
+    <div class="col-span-9 p-4">
+        <slot />
+    </div>
+</div>
