@@ -1,0 +1,31 @@
+---
+import Input from "../../components/ui/input.astro";
+import Button from "../../components/ui/button.astro";
+import Layout from "../../layouts/Layout.astro";
+import UserPanelLayout from "../../layouts/UserPanelLayout.astro";
+---
+
+<Layout>
+  <UserPanelLayout>
+    <div class="flex flex-col gap-4">
+      <div class="font-bold text-xl">اطلاعات</div>
+      <div class="flex justify-between gap-4">
+        <Input label="نام" />
+        <Input label="نام خانوادگی" />
+      </div>
+      <Input label="نام نمایشی *" />
+      <Input label="آدرس ایمیل *" />
+      <div>
+        <div class="font-bold text-xl mb-4">تغییر گذرواژه</div>
+        <div class="flex flex-col gap-4">
+          <Input label="گذرواژه پیشین (در صورتی که قصد تغییر ندارید خالی بگذارید)" />
+          <Input label="گذرواژه جدید (در صورتی که قصد تغییر ندارید خالی بگذارید)" />
+          <Input label="تکرار گذرواژه جدید" />
+        </div>
+        <div class="flex justify-end mt-4">
+          <Button>ذخیره تغییرات</Button>
+        </div>
+      </div>
+    </div>
+  </UserPanelLayout>
+</Layout>
