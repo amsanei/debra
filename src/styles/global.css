@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+table {
+    @apply w-full;
+}
+
+table thead {
+    @apply bg-neutral-100;
+}
+
+table tr {
+    @apply border-y border-neutral-200;
+}
+
+table tr:nth-child(even) {
+    @apply bg-neutral-100;
+}
+
+table th {
+    @apply text-start text-sm text-neutral-500;
+}
+
+table th,
+table td {
+    @apply p-4;
+}

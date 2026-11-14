@@ -7,6 +7,8 @@ const LINKS = [
     { title: "آدرس ها", href: "/addresses" },
     { title: "اطلاعات حساب کاربری", href: "/account-details" },
 ];
+
+const { title } = Astro.props;
 ---
 
 <div class="bg-white grid grid-cols-12 gap-4 border border-neutral-200 rounded-lg min-h-[80vh]">
@@ -32,6 +34,7 @@ const LINKS = [
         </div>
     </div>
     <div class="col-span-9 p-4">
+        <div class="font-bold text-xl mb-4">{title}</div>
         <slot />
     </div>
 </div>
