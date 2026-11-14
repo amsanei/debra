@@ -1,0 +1,21 @@
+---
+import ORDERS from "../../../data/orders";
+import Layout from "../../../layouts/Layout.astro";
+import UserPanelLayout from "../../../layouts/UserPanelLayout.astro";
+
+export function getStaticPaths() {
+  return ORDERS.map((p) => ({ params: { order: "" + p.id } }));
+}
+
+const { order: id } = Astro.params;
+
+const order = ORDERS.find((p) => p.id === Number(id));
+
+if (!order) {
+  return Astro.redirect("/404");
+}
+---
+
+<Layout>
+  <UserPanelLayout title="جزئیات سفارش" />
+</Layout>

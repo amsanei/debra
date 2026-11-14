@@ -1,50 +1,34 @@
 ---
+import ORDERS from "../../data/orders";
 import Layout from "../../layouts/Layout.astro";
 import UserPanelLayout from "../../layouts/UserPanelLayout.astro";
 ---
 
 <Layout>
-    <UserPanelLayout title="لیست سفارشات">
-        <table>
-            <thead>
-                <tr>
-                    <th>شماره سفارش</th>
-                    <th>تاریخ</th>
-                    <th>وضعیت</th>
-                    <th>هزینه</th>
-                    <th>عملیات</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>۱۲۴۱۲۴</td>
-                    <td>۱۳۷۹/۱۱/۱۱</td>
-                    <td>ارسال شده</td>
-                    <td>۱۲۰۰۰ ریال</td>
-                    <td>مشاهده</td>
-                </tr>
-                <tr>
-                    <td>۱۲۴۱۲۴</td>
-                    <td>۱۳۷۹/۱۱/۱۱</td>
-                    <td>ارسال شده</td>
-                    <td>۱۲۰۰۰ ریال</td>
-                    <td>مشاهده</td>
-                </tr>
-                <tr>
-                    <td>۱۲۴۱۲۴</td>
-                    <td>۱۳۷۹/۱۱/۱۱</td>
-                    <td>ارسال شده</td>
-                    <td>۱۲۰۰۰ ریال</td>
-                    <td>مشاهده</td>
-                </tr>
-                <tr>
-                    <td>۱۲۴۱۲۴</td>
-                    <td>۱۳۷۹/۱۱/۱۱</td>
-                    <td>ارسال شده</td>
-                    <td>۱۲۰۰۰ ریال</td>
-                    <td>مشاهده</td>
-                </tr>
-            </tbody>
-        </table>
-    </UserPanelLayout>
+  <UserPanelLayout title="لیست سفارشات">
+    <table>
+      <thead>
+        <tr>
+          <th>شماره سفارش</th>
+          <th>تاریخ</th>
+          <th>وضعیت</th>
+          <th>هزینه</th>
+          <th>عملیات</th>
+        </tr>
+      </thead>
+      <tbody>
+        {ORDERS.map((item) => (
+          <tr>
+            <td>{item.id}</td>
+            <td>{item.date}</td>
+            <td>{item.status}</td>
+            <td>{item.total}</td>
+            <td>
+              <a href={"orders/" + item.id}>مشاهده</a>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </UserPanelLayout>
 </Layout>
